@@ -1,0 +1,35 @@
+Insurance Product,Organic CAC,Inorganic CAC,Blended Average CAC,Source,Category,Metric,Benchmark,Notes,Performance Tier,Contact Rate,Quote Rate,Close Rate,Cost Per Acquisition,Monthly Lead Volume,Target/Benchmark,Context
+Auto Insurance,$203.52,$305.28,$244.22,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Home Insurance,$140.72,$211.08,$168.86,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Life Insurance,$24.96,$37.44,$29.95,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Health Insurance,$457.92,$686.88,$549.50,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Renters Insurance,$11.52,$17.28,$13.82,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Medicare,$75.84,$113.76,$91.01,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Commercial Property,$64.32,$96.48,$77.18,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+Commercial Auto,$141.12,$211.68,$169.34,Focus Digital 2024,CAC by Product,,,,,,,,,,,
+,,,,WebFX 2025,Conversion Rates,Insurance Search Ad Conversion Rate,5.10%,Google Ads average,,,,,,,,
+,,,,WebFX 2025,Conversion Rates,Insurance Display Ad Conversion Rate,1.19%,Display network average,,,,,,,,
+,,,,Unbounce 2024,Conversion Rates,Finance/Insurance Landing Page Conversion Rate,4.3% - 6.2%,Unbounce 2024 CBR,,,,,,,,
+,,,,Industry composite,Conversion Rates,Lead-to-Quote Conversion Rate (Industry Avg),15% - 25%,Varies by line of business,,,,,,,,
+,,,,Industry composite,Conversion Rates,Quote-to-Bind Rate (Top Performers),25% - 35%,Top 25% of agents,,,,,,,,
+,,,,Industry composite,Conversion Rates,Quote-to-Bind Rate (Average),15% - 20%,Median performers,,,,,,,,
+,,,,Industry composite,Conversion Rates,Quote-to-Bind Rate (Below Average),5% - 10%,Bottom quartile,,,,,,,,
+,,,,Ruler Analytics 2025,Conversion Rates,Overall Lead-to-Sale Conversion Rate,2% - 5%,End-to-end funnel,,,,,,,,
+,,,,BIA/Kelsey,Conversion Rates,Phone Call Conversion Rate vs Web,10-15x higher than web,Phone leads convert significantly higher,,,,,,,,
+,,,,Dolead/Industry,Conversion Rates,Exclusive Lead Conversion Rate,15% - 25%,GOAL's target market advantage,,,,,,,,
+,,,,Dolead/Industry,Conversion Rates,Shared Lead Conversion Rate,3% - 8%,"Traditional aggregator model (EverQuote, QuoteWizard)",,,,,,,,
+,,,,,Agent Tiers,,,,Top Performer (Top 10%),55-70%,35-50%,25-40%,$25-$60,150-300+,,
+,,,,,Agent Tiers,,,,Above Average (Top 25%),45-55%,25-35%,18-25%,$50-$90,100-150,,
+,,,,,Agent Tiers,,,,Average (Middle 50%),30-45%,15-25%,12-18%,$80-$130,50-100,,
+,,,,,Agent Tiers,,,,Below Average (Bottom 25%),20-30%,10-15%,6-12%,$120-$180,25-50,,
+,,,,,Agent Tiers,,,,Struggling (Bottom 10%),<20%,<10%,<6%,$150+,<25,,
+,,,,,GOAL Targets,Exclusive Lead Contact Rate (GOAL target),,,,,,,,,50-70%,Exclusive leads should dramatically outperform shared
+,,,,,GOAL Targets,Exclusive Lead Quote Rate (GOAL target),,,,,,,,,25-40%,Optimized QuoteFunnels improve this metric
+,,,,,GOAL Targets,Exclusive Lead Close Rate (GOAL target),,,,,,,,,15-25%,Process + lead quality combined
+,,,,,GOAL Targets,Shared Lead Close Rate (Competitor baseline),,,,,,,,,3-8%,EverQuote/QuoteWizard typical performance
+,,,,,GOAL Targets,GOAL Conversion Advantage (claimed),,,,,,,,,5x better conversion,Per GOAL marketing claims
+,,,,,GOAL Targets,Target Monthly NRR,,,,,,,,,100%+,Net Revenue Retention - key ASM metric
+,,,,,GOAL Targets,Target Annual Churn Rate,,,,,,,,,<5%,Industry benchmark for SaaS
+,,,,,GOAL Targets,Target NPS Score,,,,,,,,,70+ (Promoter),High performer threshold
+,,,,,GOAL Targets,Average Inbound Call Answer Rate (Good),,,,,,,,,>80%,Agent is capturing leads effectively
+,,,,,GOAL Targets,Average Inbound Call Answer Rate (Poor),,,,,,,,,<60%,"Indicates process issue, not lead quality issue"
