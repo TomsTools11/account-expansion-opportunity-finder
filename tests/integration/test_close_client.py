@@ -75,6 +75,9 @@ class TestCloseClientInit:
         # Clear any existing config
         monkeypatch.delenv("CLOSE_API_KEY", raising=False)
 
+        # Prevent load_dotenv from re-reading the .env file
+        monkeypatch.setattr("src.integrations.config.load_dotenv", lambda *args, **kwargs: None)
+
         # Reset the config singleton
         from src.integrations.config import reset_config
         reset_config()

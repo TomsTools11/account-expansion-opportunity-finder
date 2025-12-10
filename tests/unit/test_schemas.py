@@ -1,6 +1,6 @@
 """Unit tests for Pydantic schemas and models."""
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -360,7 +360,7 @@ class TestExpansionOpportunity:
             similar_agent_count=5,
             similar_agent_avg_revenue=20000.0,
             agent_current_tier=PerformanceTier.AVERAGE,
-            expires_at=datetime.utcnow() - timedelta(days=1),
+            expires_at=datetime.now(timezone.utc) - timedelta(days=1),
         )
         assert opp.is_expired() is True
 
