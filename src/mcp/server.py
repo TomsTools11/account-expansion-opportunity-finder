@@ -3,6 +3,7 @@
 import asyncio
 import json
 import logging
+import sys
 from typing import Any, Optional
 
 from mcp.server import Server
@@ -304,9 +305,12 @@ def create_server() -> AccountExpansionServer:
 
 async def async_main() -> None:
     """Async main entry point for the MCP server."""
+    # IMPORTANT: Log to stderr, not stdout. MCP uses stdio for communication,
+    # so any output to stdout corrupts the protocol and breaks Claude Desktop.
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        stream=sys.stderr,
     )
 
     server = create_server()
