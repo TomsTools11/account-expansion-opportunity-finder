@@ -56,7 +56,13 @@ class RateLimiter:
         self._rate = max_per_second
         self._tokens = max_per_second
         self._last_update = time.time()
-        self._lock = asyncio.Lock() if asyncio.get_event_loop().is_running() else None
+        self._lock = None
+        try:
+            loop = asyncio.get_running_loop()
+            self._lock = asyncio.Lock()
+        except RuntimeError:
+            # No running event loop, will use sync methods
+            pass
 
     def _refill(self) -> None:
         """Refill tokens based on elapsed time."""
