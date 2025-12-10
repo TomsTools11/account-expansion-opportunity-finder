@@ -1,10 +1,15 @@
 """Pydantic schemas for the Insurance Agent Account Expansion Analyzer."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 from uuid import uuid4
 
 from pydantic import BaseModel, Field, field_validator, computed_field
+
+
+def _utc_now() -> datetime:
+    """Return current UTC time as timezone-aware datetime."""
+    return datetime.now(timezone.utc)
 
 from .enums import (
     AgencyType,
@@ -59,7 +64,7 @@ class Agent(BaseModel):
 
     # Metadata
     last_updated: datetime = Field(
-        default_factory=datetime.utcnow, description="Last data update timestamp"
+        default_factory=_utc_now, description="Last data update timestamp"
     )
 
     @field_validator("current_products", mode="before")
@@ -254,7 +259,7 @@ class BenchmarkData(BaseModel):
         None, description="Industry conversion rate benchmarks"
     )
     last_updated: datetime = Field(
-        default_factory=datetime.utcnow, description="Last benchmark update timestamp"
+        default_factory=_utc_now, description="Last benchmark update timestamp"
     )
     source: str = Field(
         default="Multiple Sources", description="Primary data source"
@@ -374,7 +379,7 @@ class ExpansionOpportunity(BaseModel):
 
     # Metadata
     generated_at: datetime = Field(
-        default_factory=datetime.utcnow, description="When this opportunity was generated"
+        default_factory=_utc_now, description="When this opportunity was generated"
     )
     expires_at: Optional[datetime] = Field(
         None, description="When this opportunity becomes stale"
@@ -391,7 +396,7 @@ class ExpansionOpportunity(BaseModel):
         """Check if this opportunity has expired."""
         if self.expires_at is None:
             return False
-        return datetime.utcnow() > self.expires_at
+        return datetime.now(timezone.utc) > self.expires_at
 
     def is_high_priority(self) -> bool:
         """Check if this is a high priority opportunity (score >= 75)."""
@@ -409,7 +414,7 @@ class AnalysisResult(BaseModel):
         default_factory=dict, description="Tier comparison context"
     )
     analysis_timestamp: datetime = Field(
-        default_factory=datetime.utcnow, description="When analysis was performed"
+        default_factory=_utc_now, description="When analysis was performed"
     )
 
 
@@ -427,7 +432,7 @@ class BatchAnalysisResult(BaseModel):
         default_factory=dict, description="Aggregate statistics"
     )
     analysis_timestamp: datetime = Field(
-        default_factory=datetime.utcnow, description="When analysis was performed"
+        default_factory=_utc_now, description="When analysis was performed"
     )
 
 

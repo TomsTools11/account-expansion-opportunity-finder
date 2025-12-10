@@ -1,7 +1,7 @@
 """Google Sheets API client for benchmark data."""
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
@@ -437,7 +437,7 @@ class SheetsClient:
             tiers=tiers,
             products=products,
             cross_sell_patterns=cross_sell,
-            last_updated=datetime.utcnow(),
+            last_updated=datetime.now(timezone.utc),
             source="Google Sheets",
         )
 
@@ -463,7 +463,7 @@ class SheetsClient:
             pattern.adoption_rate,
             pattern.avg_time_to_add_months,
             pattern.tier.value if pattern.tier else "",
-            datetime.utcnow().strftime("%Y-%m-%d"),
+            datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         ]]
 
         try:
@@ -507,7 +507,7 @@ class SheetsClient:
                 pattern.adoption_rate,
                 pattern.avg_time_to_add_months,
                 pattern.tier.value if pattern.tier else "",
-                datetime.utcnow().strftime("%Y-%m-%d"),
+                datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             ])
 
         try:

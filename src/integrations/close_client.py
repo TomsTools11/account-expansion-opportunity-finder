@@ -3,7 +3,7 @@
 import asyncio
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Optional
 
 import requests
@@ -291,7 +291,7 @@ class CloseClient:
             monthly_lead_volume=int(lead_volume) if lead_volume else None,
             cost_per_acquisition=float(cac) if cac else None,
             performance_tier=performance_tier,
-            last_updated=datetime.utcnow(),
+            last_updated=datetime.now(timezone.utc),
         )
 
     def fetch_agent(self, lead_id: str, use_cache: bool = True) -> Agent:
