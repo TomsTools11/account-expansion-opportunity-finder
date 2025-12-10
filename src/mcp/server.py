@@ -14,7 +14,7 @@ from mcp.types import (
 )
 from pydantic import ValidationError
 
-from src.integrations import CloseClient, SheetsClient, load_config
+from src.integrations import CloseClient, SheetsClient
 from src.mcp.tools import (
     AnalyzeAgentInput,
     BatchAnalysisInput,
@@ -233,17 +233,9 @@ class AccountExpansionServer:
         """Ensure API clients are initialized."""
         if self.close_client is None or self.sheets_client is None:
             logger.info("Initializing API clients")
-            config = load_config()
-
-            self.close_client = CloseClient(
-                api_key=config.close.api_key,
-                base_url=config.close.base_url,
-            )
-
-            self.sheets_client = SheetsClient(
-                spreadsheet_id=config.google_sheets.spreadsheet_id,
-                credentials_path=config.google_sheets.credentials_path,
-            )
+            # Clients auto-configure from environment variables
+            self.close_client = CloseClient()
+            self.sheets_client = SheetsClient()
 
     async def _handle_tool_call(self, name: str, arguments: dict) -> dict:
         """Handle a tool call and return results.

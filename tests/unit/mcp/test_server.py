@@ -176,20 +176,12 @@ class TestClientInitialization:
         """Test that clients are initialized on first tool call."""
         server = AccountExpansionServer()
 
-        with patch("src.mcp.server.load_config") as mock_config:
-            mock_config.return_value = MagicMock(
-                close=MagicMock(api_key="key", base_url="url"),
-                google_sheets=MagicMock(
-                    spreadsheet_id="id",
-                    credentials_path="path",
-                ),
-            )
-            with patch("src.mcp.server.CloseClient") as MockClose:
-                with patch("src.mcp.server.SheetsClient") as MockSheets:
-                    await server._ensure_clients_initialized()
+        with patch("src.mcp.server.CloseClient") as MockClose:
+            with patch("src.mcp.server.SheetsClient") as MockSheets:
+                await server._ensure_clients_initialized()
 
-                    MockClose.assert_called_once()
-                    MockSheets.assert_called_once()
+                MockClose.assert_called_once_with()
+                MockSheets.assert_called_once_with()
 
     @pytest.mark.asyncio
     async def test_clients_not_reinitialized(self):
@@ -198,7 +190,9 @@ class TestClientInitialization:
         server.close_client = MagicMock()
         server.sheets_client = MagicMock()
 
-        with patch("src.mcp.server.load_config") as mock_config:
-            await server._ensure_clients_initialized()
+        with patch("src.mcp.server.CloseClient") as MockClose:
+            with patch("src.mcp.server.SheetsClient") as MockSheets:
+                await server._ensure_clients_initialized()
 
-            mock_config.assert_not_called()
+                MockClose.assert_not_called()
+                MockSheets.assert_not_called()
